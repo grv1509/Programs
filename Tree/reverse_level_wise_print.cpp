@@ -16,7 +16,7 @@ struct Node{
 
 void printReverseLevelWise(Node *root){
 	stack<Node*> s;
-	queue<Node*> q;
+	 queue<Node*> q;
 	Node *curr = root;
 
 	q.push(curr);
