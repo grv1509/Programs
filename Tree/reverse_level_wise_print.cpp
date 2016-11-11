@@ -17,6 +17,22 @@ struct Node{
 void printReverseLevelWise(Node *root){
 	stack<Node*> s;
 	queue<Node*> q;
+	Node *curr = root;
+
+	q.push(curr);
+	while(!q.empty()){
+		Node *temp = q.front();
+		if(temp->right)q.push(temp->right);
+		if(temp->left)q.push(temp->left);
+		s.push(temp);
+		q.pop();		
+	}
+
+	while(!s.empty()){
+		cout << s.top()->data << " ";
+		s.pop();
+	}
+	cout << endl;
 
 }
 void print(Node *root){
@@ -41,7 +57,7 @@ int main(){
 	
 	print(root);
 	cout << endl;
-	cout << "Sprial" << endl;
+	cout << "Reverse order" << endl;
 	printReverseLevelWise(root);
 	cout << endl;
 	return 0;	
