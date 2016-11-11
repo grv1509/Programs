@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 struct Node{
@@ -14,6 +14,21 @@ struct Node{
 };
 
 
+void printLevelWise(Node *root){
+	queue<Node*> q;
+	Node *curr = root;
+	
+	q.push(curr);
+	
+	while(!q.empty()){
+		Node *temp = q.front();
+		if(temp->left) q.push(temp->left);
+		if(temp->right)q.push(temp->right);
+		cout << temp->data << " ";
+		q.pop();
+	}
+	
+}
 void print(Node *root){
 	if(root == NULL) return;
 	print(root->left);
@@ -34,6 +49,6 @@ int main(){
 	root->right->left->right = new Node(9);
 	root->right->left->left = new Node(10);
 	
-	print(root);
+	printLevelWise(root);
 	return 0;	
 }

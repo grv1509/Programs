@@ -14,20 +14,10 @@ struct Node{
 };
 
 
-void printSpiral(Node *root){
+void printReverseLevelWise(Node *root){
+	stack<Node*> s;
 	queue<Node*> q;
-	Node *curr = root;
-	
-	q.push(curr);
-	
-	while(!q.empty()){
-		Node *temp = q.front();
-		if(temp->left) q.push(temp->left);
-		if(temp->right)q.push(temp->right);
-		cout << temp->data << " ";
-		q.pop();
-	}
-	
+
 }
 void print(Node *root){
 	if(root == NULL) return;
@@ -49,6 +39,10 @@ int main(){
 	root->right->left->right = new Node(9);
 	root->right->left->left = new Node(10);
 	
-	printSpiral(root);
+	print(root);
+	cout << endl;
+	cout << "Sprial" << endl;
+	printReverseLevelWise(root);
+	cout << endl;
 	return 0;	
 }
